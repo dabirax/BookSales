@@ -557,6 +557,14 @@ video {
   margin-top: 1rem;
 }
 
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
 .grid {
   display: grid;
 }
@@ -573,8 +581,16 @@ video {
   max-width: 72rem;
 }
 
+.items-start {
+  align-items: flex-start;
+}
+
 .gap-8 {
   gap: 2rem;
+}
+
+.self-start {
+  align-self: flex-start;
 }
 
 .rounded-2xl {

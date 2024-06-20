@@ -85,12 +85,15 @@ const thirdBook = {
 // ShortCut for props
 const BookList = () => {
   return (
-    <section className="w-[90vw] max-w-6xl m-20 grid gap-8 md:grid-cols-3">
+    <section className="w-[90vw] max-w-6xl m-20 grid items-start gap-8 md:grid-cols-3 ">
       <Book
         author={firstBook.author}
         title={firstBook.title}
         img={firstBook.img}
-      />
+      >
+        <p className="mt-4 mb-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi voluptatum sunt, maiores accusamus ad, iure doloribus quia rerum ea impedit a ullam perspiciatis laborum quaerat quisquam aut ipsa commodi repellendus.</p>
+        <button>Click Me</button>
+      </Book>
       <Book
         author={secondBook.author}
         title={secondBook.title}
@@ -121,12 +124,13 @@ const BookList = () => {
 };
 const Book = (props) => {
   console.log(props);
-  const { author, title, img } = props;
+  const { author, title, img, children} = props;
   return (
     <article className="bg-white rounded-2xl p-8 text-center">
       <Image img={img} title={title} />
       <Title title={title} />
       <Author author={author} />
+    {children}
     </article>
   );
 };
