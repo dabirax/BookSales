@@ -68,27 +68,7 @@ const thirdBook = {
 //         author={secondBook.author}
 //         title={secondBook.title}
 //         img={secondBook.img}
-//       />
-//       <Book
-//         author={thirdBook.author}
-//         title={thirdBook.title}
-//         img={thirdBook.img}
-//       />
-//       <Book
-//         author={secondBook.author}
-//         title={secondBook.title}
-//         img={secondBook.img}
-//       />
-//       <Book
-//         author={thirdBook.author}
-//         title={thirdBook.title}
-//         img={thirdBook.img}
-//       />
-//       <Book
-//         author={firstBook.author}
-//         title={firstBook.title}
-//         img={firstBook.img}
-//       />
+//        />
 //     </section>
 //   );
 // };
@@ -99,21 +79,6 @@ const thirdBook = {
 //       <Title title={props.title} />
 //       <Author author={props.author} />
 //     </article>
-//   );
-// };
-// const Image = (props) => {
-//   return (
-//     <img src={props.img} alt={props.title} className="w-96 object-cover" />
-//   );
-// };
-// const Title = (props) => {
-//   return <h2 className="mt-4 text-base">{props.title}</h2>;
-// };
-// const Author = (props) => {
-//   return (
-//     <h4 className="mt-2 text-[#617d98] text-xs tracking-[2px]">
-//       {props.author}
-//     </h4>
 //   );
 // };
 
