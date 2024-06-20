@@ -1,136 +1,92 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-// import picone from "./images/one.jpg";
-// import pictwo from "./images/two.jpg";
-// import picthree from "./images/three.jpg";
 import "./output.css";
 
-// const Greeting = () => {
-//   return (
-//     <>
-//       <div>
-//         <h3>My First Component</h3>
-//         <ul>
-//           <li>
-//             <a href="#">Hello world</a>
-//           </li>
-//         </ul>
-//       </div>
-//       <h2>Gehazi</h2>
-//     </>
-//   );
-// };
-// const Greeting = () => {
-//   return React.createElement('div', {}, React.createElement('h2',{},'hello world'));
-// };
+const books = [
+  {
+    author: "Jordan Moore",
+    title: "Witnessing in the HS",
+    img: "./images/one.jpg",
+    id: 1,
+  },
+  {
+    author: "Praise Nelson",
+    title: "Atomic Habits",
+    img: "./images/two.jpg",
+    id: 2,
+  },
+  {
+    author: "George Myles",
+    title: "Reassessing Your Chess Moves",
+    img: "./images/three.jpg",
+    id: 3,
+  },
+];
+// An Example
+// const cities = ["Lagos", "San Andreas", "Moscow"];
+// const newCities = cities.map((city) => {
+//   return <h1 className="text-4xl">{city}</h1>;
+// });
 
-// Nesting
-
-// const Person = () => <h2>John the Baptist</h2>;
-// const Message = () => {
-//   return <h4>Seven horns ...</h4>;
-// };
-
-// function Greeting() {
-//   return (
-//     <div>
-//       <Person />
-//       <Message />
-//     </div>
-//   );
-// }
-
-const firstBook = {
-  author: "Jordan Moore",
-  title: "Witnessing in the HS",
-  img: "./images/one.jpg",
-};
-const secondBook = {
-  author: "Praise Nelson",
-  title: "Atomic Habits",
-  img: "./images/two.jpg",
-};
-const thirdBook = {
-  author: "George Myles",
-  title: "Reassessing Your Chess Moves",
-  img: "./images/three.jpg",
-};
-
+//Manual method
 // const BookList = () => {
 //   return (
-//     <section className="w-[90vw] max-w-6xl m-20 grid gap-8 md:grid-cols-3">
-//       <Book
-//         author={firstBook.author}
-//         title={firstBook.title}
-//         img={firstBook.img}
-//       />
-//       <Book
-//         author={secondBook.author}
-//         title={secondBook.title}
-//         img={secondBook.img}
-//        />
+//     <section className="w-[90vw] max-w-6xl m-20 grid items-start gap-8 md:grid-cols-3">
+//       {books.map((book) => {
+//         const { img, author, title, id } = book;
+//         return <Book img={img} title={title} author={author} key={id} />;
+//       })}
 //     </section>
 //   );
 // };
+
+//Passing the whole object
+const BookList = () => {
+  // const friends = ['john', 'peter', 'anna'];
+  // // const newFriends = [...friends, 'susan'];
+  // const friends = {
+  //   name: 'Praise',
+  //   job: 'Leader',
+  // };
+  // const newFriends = {...friends, sister: 'susan'};
+  // console.log(friends);
+  // console.log(newFriends);
+  return (
+    <section className="w-[90vw] max-w-6xl m-20 grid items-start gap-8 md:grid-cols-3">
+      {books.map((book) => {
+        // return <Book book={book} key={book.id} />;
+        //Spread Operator
+        return <Book {...book} key={book.id} />;
+      })}
+    </section>
+  );
+};
 // const Book = (props) => {
+//   const { author, title, img, children } = props.book;
+
+//Spread Operator
+//   const { author, title, img, children } = props;
+//
 //   return (
 //     <article className="bg-white rounded-2xl p-8 text-center">
-//       <Image img={props.img} title={props.title} />
-//       <Title title={props.title} />
-//       <Author author={props.author} />
+//       <Image img={img} title={title} />
+//       <Title title={title} />
+//       <Author author={author} />
+//       {children}
 //     </article>
 //   );
 // };
 
-// ShortCut for props
-const BookList = () => {
-  return (
-    <section className="w-[90vw] max-w-6xl m-20 grid items-start gap-8 md:grid-cols-3 ">
-      <Book
-        author={firstBook.author}
-        title={firstBook.title}
-        img={firstBook.img}
-      >
-        <p className="mt-4 mb-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi voluptatum sunt, maiores accusamus ad, iure doloribus quia rerum ea impedit a ullam perspiciatis laborum quaerat quisquam aut ipsa commodi repellendus.</p>
-        <button>Click Me</button>
-      </Book>
-      <Book
-        author={secondBook.author}
-        title={secondBook.title}
-        img={secondBook.img}
-      />
-      <Book
-        author={thirdBook.author}
-        title={thirdBook.title}
-        img={thirdBook.img}
-      />
-      <Book
-        author={secondBook.author}
-        title={secondBook.title}
-        img={secondBook.img}
-      />
-      <Book
-        author={thirdBook.author}
-        title={thirdBook.title}
-        img={thirdBook.img}
-      />
-      <Book
-        author={firstBook.author}
-        title={firstBook.title}
-        img={firstBook.img}
-      />
-    </section>
-  );
-};
-const Book = (props) => {
-  console.log(props);
-  const { author, title, img, children} = props;
+// Destructuring Method
+// const Book = ({ book: { author, title, img, children } }) => {
+  //Spread Operator Destructuring Method
+  const Book = ({ author, title, img, children } ) => {
   return (
     <article className="bg-white rounded-2xl p-8 text-center">
       <Image img={img} title={title} />
       <Title title={title} />
       <Author author={author} />
-    {children}
+      {children}
     </article>
   );
 };
@@ -140,7 +96,7 @@ const Image = (props) => {
   );
 };
 const Title = (props) => {
-  const {title} = props;
+  const { title } = props;
   return <h2 className="mt-4 text-base">{props.title}</h2>;
 };
 const Author = ({ author }) => {
