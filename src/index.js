@@ -117,7 +117,6 @@ const thirdBook = {
 //   );
 // };
 
-
 // ShortCut for props
 const BookList = () => {
   return (
@@ -156,8 +155,8 @@ const BookList = () => {
   );
 };
 const Book = (props) => {
-  console.log(props)
-   const {author, title, img} = props;
+  console.log(props);
+  const { author, title, img } = props;
   return (
     <article className="bg-white rounded-2xl p-8 text-center">
       <Image img={img} title={title} />
@@ -167,21 +166,17 @@ const Book = (props) => {
   );
 };
 const Image = (props) => {
-   const {title, img } = props;
   return (
-    <img src={img} alt={title} className="w-96 object-cover" />
+    <img src={props.img} alt={props.title} className="w-96 object-cover" />
   );
 };
 const Title = (props) => {
-   const {title } = props;
-  return <h2 className="mt-4 text-base">{title}</h2>;
+  const {title} = props;
+  return <h2 className="mt-4 text-base">{props.title}</h2>;
 };
-const Author = (props) => {
-   const {author} = props;
+const Author = ({ author }) => {
   return (
-    <h4 className="mt-2 text-[#617d98] text-xs tracking-[2px]">
-      {author}
-    </h4>
+    <h4 className="mt-2 text-[#617d98] text-xs tracking-[2px]">{author}</h4>
   );
 };
 
