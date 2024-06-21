@@ -42,25 +42,54 @@ const books = [
 
 //Passing the whole object
 const BookList = () => {
-  // const friends = ['john', 'peter', 'anna'];
-  // // const newFriends = [...friends, 'susan'];
-  // const friends = {
-  //   name: 'Praise',
-  //   job: 'Leader',
-  // };
-  // const newFriends = {...friends, sister: 'susan'};
-  // console.log(friends);
-  // console.log(newFriends);
+  const val = "Mekusi";
+  const display = () => {
+    console.log(val);
+  };
   return (
     <section className="w-[90vw] max-w-6xl m-20 grid items-start gap-8 md:grid-cols-3">
+      {/* <EventExamples /> */}
       {books.map((book) => {
         // return <Book book={book} key={book.id} />;
         //Spread Operator
-        return <Book {...book} key={book.id} />;
+        return <Book {...book} key={book.id} display={display}/>;
       })}
     </section>
   );
 };
+
+// const EventExamples = () => {
+//   const Change = (e) => {
+//     console.log("handle for input");
+//     console.log(e.target);
+//     console.log(e.target.name);
+//     console.log(e.target.value);
+//   };
+//   const Click = () => {
+//     alert("handle for button");
+//   };
+//   const Submit = (e) => {
+//     e.preventDefault();
+//     console.log( "first");
+//   };
+//   return (
+//     <section>
+//       <form action="" /*onSubmit={Submit}*/>
+//         <h2>Typical Form</h2>
+//         <input
+//           type="text"
+//           name="example"
+//           id=""
+//           className="my-4"
+//           onChange={Change}
+//         />
+//         <button type="submit" onClick={Submit}>Click me</button>
+
+//         <button onClick={(e)=>{e.preventDefault();console.log('You are there')}}>Click me</button>
+//       </form>
+//     </section>
+//   );
+// };
 // const Book = (props) => {
 //   const { author, title, img, children } = props.book;
 
@@ -79,12 +108,16 @@ const BookList = () => {
 
 // Destructuring Method
 // const Book = ({ book: { author, title, img, children } }) => {
-  //Spread Operator Destructuring Method
-  const Book = ({ author, title, img, children } ) => {
+//Spread Operator Destructuring Method
+const Book = ({ author, title, img, children, display}) => {
+  const displayTitle = () => {
+    console.log(title);
+  };
   return (
     <article className="bg-white rounded-2xl p-8 text-center">
       <Image img={img} title={title} />
       <Title title={title} />
+      <button onClick={display}>display title</button>
       <Author author={author} />
       {children}
     </article>
