@@ -1,13 +1,16 @@
-const Book = ({ author, title, img, id, getBook }) => {
+import { books } from "./books";
+
+const Book = ({ author, title, img, id, number, getBook }) => {
   // const displayTitle = () => {
   //   console.log(title);
   // };
-
+console.log(number);
   const getJustOneBook = () => {
     getBook(id);
   };
   return (
-    <article className="bg-white rounded-2xl p-8 text-center">
+    <article className="bg-white rounded-2xl p-8 text-center relative">
+      <Number number={`#${number+1}`} />
       <Image img={img} title={title} />
       <Title title={title} />
       {/* <button onClick={getJustOneBook}>Get Book</button>  */}
@@ -16,13 +19,19 @@ const Book = ({ author, title, img, id, getBook }) => {
     </article>
   );
 };
+const Number = (props) => {
+  return (
+    <h1 className="absolute top-0 left-0 p-3 text-base rounded-tl-2xl rounded-br-2xl bg-[#c35600] text-white">
+      {props.number}
+    </h1>
+  );
+};
 const Image = (props) => {
   return (
     <img src={props.img} alt={props.title} className="w-96 object-cover" />
   );
 };
 const Title = (props) => {
-  const { title } = props;
   return <h2 className="mt-4 text-base">{props.title}</h2>;
 };
 const Author = ({ author }) => {
