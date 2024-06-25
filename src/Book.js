@@ -1,4 +1,4 @@
-import { books } from "./books";
+
 
 const Book = ({ author, title, img, id, number, getBook }) => {
   // const displayTitle = () => {
